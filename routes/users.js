@@ -44,7 +44,7 @@ router.post("/new", (req, res) => {
 router.delete("/delete/:id", (req, res) => {
     db.bezeroak.remove(
         {
-            '_id': mongojs.ObjectId(req.params.id)
+            _id: mongojs.ObjectId(req.params.id)
         },
         function(err, user) {
             if (err) {
