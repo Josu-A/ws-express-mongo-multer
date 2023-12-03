@@ -12,7 +12,7 @@ let updateUser = (id) => {
     `;
 
     let user = {
-        '_id': id,
+        'id': id,
         'izena': izena,
         'abizena': abizena,
         'email': email
@@ -85,13 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         let user = {
-            '_id': Date.now(),
             'izena': e.target.izena.value,
             'abizena': e.target.abizena.value,
             'email': e.target.email.value
         }
-
-        insertUser(user);
 
         fetch("/users/new", {
             method: "POST",
@@ -102,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then((response) => response.json())
         .then((data) => {
+            insertUser(data);
             console.log(data); // handle the response data or action
         })
         .catch((error) => {
