@@ -24,9 +24,9 @@
             </tbody>
         </table>
         <form action="/users/new" method="post" id="formularioa" class="d-flex flex-column flex-md-row">
-            <input type="text" name="izena" placeholder="Izena" class="flex-fill" />
-            <input type="text" name="abizena" placeholder="Abizena" class="flex-fill" />
-            <input type="text" name="email" placeholder="Email" class="flex-fill" />
+            <input type="text" name="izena" placeholder="Izena" class="flex-fill" required />
+            <input type="text" name="abizena" placeholder="Abizena" class="flex-fill" required />
+            <input type="email" name="email" placeholder="Email" class="flex-fill" required />
             <input type="hidden" name="id" />
             <input type="submit" value="Gehitu" />
         </form>
