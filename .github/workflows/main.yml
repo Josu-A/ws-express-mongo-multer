@@ -5,19 +5,9 @@ on:
             - main
 jobs:
     build:
-        name: Build&Deploy
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v2
-            - name: Install Dependencies
-              run: npm install
-            - name: deploy file to server
-              uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-              with:
-                  username: azureuser
-                  server: ${{ secrets.SERVER_IP }}
-                  ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-                  local_path: ./*
-                  remote_path: apps/ws/userfetch-mongo
-                  sftpArgs: -o ConnectTimeout=5
+            - name: Test
+              run: ls -a
