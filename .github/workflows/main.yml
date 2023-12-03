@@ -1,21 +1,23 @@
----
+name: Build&Deploy
 on:
-  - push
+    push:
+        branches:
+            - main
 jobs:
-  deploy_job: null
-  runs-on: ubuntu-latest
-  name: build&deploy
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: npm install
-    - name: deploy file to server
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-      with:
-        username: azureuser
-        server: ${{ secrets.SERVER_IP }}
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        local_path: ./*
-        remote_path: /home/azureuser/apps/ws/userfetch-mongo
-        sftpArgs: -o ConnectTimeout=5
+    build:
+        name: Build&Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Install Dependencies
+              run: npm install
+            - name: deploy file to server
+              uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+              with:
+                  username: azureuser
+                  server: ${{ secrets.SERVER_IP }}
+                  ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  local_path: ./*
+                  remote_path: ~/apps/ws/userfetch-mongo
+                  sftpArgs: -o ConnectTimeout=5
