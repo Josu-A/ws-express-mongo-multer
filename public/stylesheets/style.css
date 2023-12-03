@@ -6,3 +6,17 @@ body {
 a {
     color: #00B7FF;
 }
+
+.i-button {
+    cursor: pointer;
+}
+
+h1 {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#formularioa > * {
+    margin-inline: 1em;
+    margin-top: 0.8em;
+}

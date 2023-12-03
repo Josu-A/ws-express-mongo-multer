@@ -8,7 +8,7 @@ let updateUser = (id) => {
         <td>${izena}</td>
         <td>${abizena}</td>
         <td>${email}</td>
-        <td> <a onclick="deleteUser('${id}')">[x]</a> <a onclick="editUser('${id}')">[e]</a>  </td>
+        <td> <a onclick="deleteUser('${id}')"><i class="i-button bi bi-trash-fill"></i></a> <a onclick="editUser('${id}')"><i class="i-button bi bi-pencil-square"></i></a>  </td>
     `;
 
     let user = {
@@ -61,7 +61,7 @@ let insertUser = (user) => {
         <td>${user.izena}</td>
         <td>${user.abizena}</td>
         <td>${user.email}</td>
-        <td><a onclick="deleteUser('${user._id}')">[x]</a> <a onclick="editUser('${user._id}')">[e]</a>  </td>
+        <td><a onclick="deleteUser('${user._id}')"><i class="i-button bi bi-trash-fill"></i></a> <a onclick="editUser('${user._id}')"><i class="i-button bi bi-pencil-square"></i></a>  </td>
     `;
 };
 
@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.json())
         .then((data) => {
             insertUser(data);
+            e.target.reset();
             console.log(data); // handle the response data or action
         })
         .catch((error) => {
