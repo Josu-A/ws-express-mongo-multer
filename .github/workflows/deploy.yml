@@ -15,7 +15,7 @@ jobs:
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 script_stop: true
                 script: |
-                    cd ~/apps/ws/userfetch-mongo/
+                    cd ~/apps/ws/userfetch-mongo-multer/
                     git pull
                     export NVM_DIR=~/.nvm
                     source ~/.nvm/nvm.sh

@@ -5,14 +5,14 @@
  */
 
 const app = require('../app');
-const debug = require('debug')('usersfetch-mongo:server');
+const debug = require('debug')('usersfetch-mongo-multer:server');
 const http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3103');
+const port = normalizePort(process.env.PORT || '3104');
 app.set('port', port);
 
 /**

@@ -1,8 +1,8 @@
-# WS - Ariketa: Userfetch - mongo
+# WS - Ariketa: Userfetch - mongo - multer
 
 ## Sarrera
 
-Userfetch ariketaren inplementazioa mongodb erabiliz.
+Userfetch ariketaren inplementazioa `mongodb` eta `multer` erabiliz.
 
 ## Build
 
@@ -16,8 +16,8 @@ Userfetch ariketaren inplementazioa mongodb erabiliz.
 Biltegia klonatu:
 
 ```bash
-git clone https://github.com/Josu-A/ws-express-mongo.git
-cd ws-express-mongo
+git clone https://github.com/Josu-A/ws-express-mongo-multer.git
+cd ws-express-mongo-multer
 ```
 
 npm dependenziak instalatu:
@@ -26,7 +26,7 @@ npm dependenziak instalatu:
 npm install
 ```
 
-Sare aplikazioa hasieratu defektuzko 3103 portuan:
+Sare aplikazioa hasieratu defektuzko 3104 portuan:
 
 ```bash
 npm start
@@ -67,7 +67,7 @@ Aplikazioak debug mezuak kontsolan idazteko
 <details><summary>Linux / MacOS</summary>
 
 ```bash
-DEBUG=userfetch-mongo:* npm start
+DEBUG=userfetch-mongo-multer:* npm start
 ```
 
 </details>
@@ -75,7 +75,7 @@ DEBUG=userfetch-mongo:* npm start
 <details><summary>Windows Command Prompt</summary>
 
 ```cmd
-set DEBUG=userfetch-mongo:* & npm start
+set DEBUG=userfetch-mongo-multer:* & npm start
 ```
 
 </details>
@@ -83,7 +83,7 @@ set DEBUG=userfetch-mongo:* & npm start
 <details><summary>Windows PowerShell</summary>
 
 ```ps
-$env:DEBUG='userfetch-mongo:*'; npm start
+$env:DEBUG='userfetch-mongo-multer:*'; npm start
 ```
 
 </details>
