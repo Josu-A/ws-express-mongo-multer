@@ -56,15 +56,15 @@ let insertUser = (user) => {
 
     let newRow = tableBody.insertRow();
     newRow.setAttribute("id", user._id);
-    console.log(window.location.origin + userAvatar)
     newRow.innerHTML = `
         <th scope="row">${user._id}</th>
-        <td><img class="avatar" src="${userAvatar}"></td>
+        <td><img class="avatar" src=""></td>
         <td>${user.izena}</td>
         <td>${user.abizena}</td>
         <td>${user.email}</td>
         <td><a onclick="deleteUser('${user._id}')"><i class="i-button bi bi-trash-fill"></i></a> <a onclick="editUser('${user._id}')"><i class="i-button bi bi-pencil-square"></i></a>  </td>
     `;
+    document.getElementById(user._id).querySelector("img").src = window.location.origin + userAvatar;
 };
 
 let deleteUser = id => {
