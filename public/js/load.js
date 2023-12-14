@@ -58,13 +58,12 @@ let insertUser = (user) => {
     newRow.setAttribute("id", user._id);
     newRow.innerHTML = `
         <th scope="row">${user._id}</th>
-        <td><img class="avatar" src=""></td>
+        <td><img class="avatar" src="${userAvatar}"></td>
         <td>${user.izena}</td>
         <td>${user.abizena}</td>
         <td>${user.email}</td>
         <td><a onclick="deleteUser('${user._id}')"><i class="i-button bi bi-trash-fill"></i></a> <a onclick="editUser('${user._id}')"><i class="i-button bi bi-pencil-square"></i></a>  </td>
     `;
-    document.getElementById(user._id).querySelector("img").src = window.location.origin + userAvatar;
 };
 
 let deleteUser = id => {
@@ -117,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("/users/list")
     .then(response => response.json())
     .then(users => {
-        console.log(users);
         users.forEach((user) => {
             insertUser(user);
         });
