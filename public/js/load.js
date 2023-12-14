@@ -54,6 +54,8 @@ let insertUser = (user) => {
     const userAvatar = '/upload/' + (user.avatar || 'avatar-default.png');
     var tableBody = document.getElementById("userTableBody");
 
+    fetch(window.location.origin + userAvatar);
+
     var newRow = tableBody.insertRow();
     newRow.setAttribute("id", user._id);
     newRow.innerHTML = `
