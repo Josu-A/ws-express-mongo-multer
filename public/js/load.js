@@ -56,6 +56,7 @@ let insertUser = (user) => {
 
     let newRow = tableBody.insertRow();
     newRow.setAttribute("id", user._id);
+    console.log(window.location.origin + userAvatar)
     newRow.innerHTML = `
         <th scope="row">${user._id}</th>
         <td><img class="avatar" src="${userAvatar}"></td>
