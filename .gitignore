@@ -1,3 +1,7 @@
+# App ignores
+upload/*
+!upload/avatar-default.png
+
 # Logs
 logs
 *.log

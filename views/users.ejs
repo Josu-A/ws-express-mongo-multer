@@ -7,10 +7,10 @@
         <meta name="description" content="WS ikasgaian MongoDB eta Multer ikasteko UsersFetch ariketa" />
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <title><%= title %></title>
-        <link rel='stylesheet' href='/styles/css/bootstrap.min.css' />
+        <link rel="stylesheet" href="/styles/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-        <link rel="stylesheet" href="/stylesheets/style.css" />
-        <script src="/javascripts/load.js"></script>
+        <link rel="stylesheet" href="/css/style.css" />
+        <script src="/js/load.js"></script>
     </head>
     <body>
         <header>
@@ -21,6 +21,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Avatar</th>
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
                         <th scope="col">Email</th>
@@ -31,11 +32,11 @@
 
                 </tbody>
             </table>
-            <form action="/users/new" method="post" id="formularioa" class="d-flex flex-column flex-md-row">
+            <form id="formularioa" enctype="multipart/form-data" class="d-flex flex-column flex-md-row">
                 <input type="text" name="izena" placeholder="Izena" class="flex-fill" required />
                 <input type="text" name="abizena" placeholder="Abizena" class="flex-fill" required />
                 <input type="email" name="email" placeholder="Email" class="flex-fill" required />
-                <input type="hidden" name="id" />
+                <input type="file" name="avatar" />
                 <input type="submit" value="Gehitu" />
             </form>
         </main>

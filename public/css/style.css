@@ -20,3 +20,8 @@ h1 {
     margin-inline: 1em;
     margin-top: 0.8em;
 }
+
+.avatar {
+    height: 50px;
+    width: 50px;
+}
