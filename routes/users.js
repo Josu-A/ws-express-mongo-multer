@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 const mongojs = require('mongojs');
-const db = mongojs('bezeroakdb', ['bezeroakWithAvatar'])
+const db = mongojs('bezeroakdb', ['bezeroakWithAvatar']);
 const multer = require('multer');
 
 const uploadFolder = 'upload/';
@@ -41,7 +41,7 @@ const upload = multer({
 
 let users = [];
 
-db.bezeroak.find((error, userdocs) => {
+db.find((error, userdocs) => {
     if (error) {
         console.error(error);
     }
@@ -70,7 +70,7 @@ router.post('/new', upload.single('avatar'), (req, res) => {
         "email" : req.body.email,
         "avatar" : req.file ? req.file.filename : ""
     };
-    db.bezeroak.insert(newUser, (error, user) => {
+    db.insert(newUser, (error, user) => {
         if (error) {
             console.error(error);
             res.status(404).json({ "error" : "Erabiltzailea ez da sartu." });
@@ -84,7 +84,7 @@ router.post('/new', upload.single('avatar'), (req, res) => {
 });
 
 router.delete('/delete/:id', (req, res) => {
-    db.bezeroak.findOne({ "_id" : mongojs.ObjectId(req.params.id) }, (error, user) => {
+    db.findOne({ "_id" : mongojs.ObjectId(req.params.id) }, (error, user) => {
         if (error) {
             console.error(error);
             res.status(500).json({ "error" : "Internal Server Error" });
@@ -94,7 +94,7 @@ router.delete('/delete/:id', (req, res) => {
         }
         else {
             const avatarFileName = user.avatar;
-            db.bezeroak.remove({ "_id" : mongojs.ObjectId(req.params.id) }, (err, user) => {
+            db.remove({ "_id" : mongojs.ObjectId(req.params.id) }, (err, user) => {
                 if (err) {
                     console.error(err);
                     res.status(404).json({ "error" : "Erabiltzailea ez da ezabatu." });
@@ -113,7 +113,7 @@ router.delete('/delete/:id', (req, res) => {
 });
 
 router.put("/update/:id", upload.single('avatar'), (req, res) => {
-    db.bezeroak.findOne({ "_id" : mongojs.ObjectId(req.params.id) }, (error, user) => {
+    db.findOne({ "_id" : mongojs.ObjectId(req.params.id) }, (error, user) => {
         if (error) {
             console.error(error);
             res.status(500).json({ "error" : "Internal Server Error" });
@@ -123,7 +123,7 @@ router.put("/update/:id", upload.single('avatar'), (req, res) => {
         }
         else {
             const avatarFileName = user.avatar;
-            db.bezeroak.update({ "_id" : mongojs.ObjectId(req.params.id) }, {
+            db.update({ "_id" : mongojs.ObjectId(req.params.id) }, {
                     "$set" : {
                         "izena" : req.body.izena,
                         "abizena" : req.body.abizena,
