@@ -52,18 +52,9 @@ let editUser = (id) => {
 
 let insertUser = (user) => {
     const userAvatar = '/upload/' + (user.avatar || 'avatar-default.png');
-    var tableBody = document.getElementById("userTableBody");
+    let tableBody = document.getElementById("userTableBody");
 
-    fetch(window.location.origin + userAvatar, {
-        "method" : "GET",
-        "headers" : {
-            "accept" : "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-            "sec-fetch-dest" : "image",
-            "sec-fetch-mode" : "no-cors"
-        }
-    });
-
-    var newRow = tableBody.insertRow();
+    let newRow = tableBody.insertRow();
     newRow.setAttribute("id", user._id);
     newRow.innerHTML = `
         <th scope="row">${user._id}</th>
